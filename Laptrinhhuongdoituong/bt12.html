@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<table border="1" width="200px" height="300px" id="dien_thoai">
+    <tr>
+        <td> </td>
+    </tr>
+    <tr style="height:200px" id="body_dien_thoai">
+        <td></td>
+    </tr>
+    <tr>
+        <td><button onclick=" objMobiel.turn_the_phone_on_and_off()">ON/OF</button></td>
+    </tr>
+</table>
+<button onclick="objMobiel.refill_phone_battery()">SacPin</button>
+<button onclick="objMobiel.message_composing()">Soan Tin Nhan</button>
+
+<body>
+    <script>
+        function Mobiel() {
+            //thuoc tinh thông số về trạng thái pin tính bằng đơn vị số nguyên (tối đa 100 đv)
+            this.dv = 100;
+            // thuoc tinh  lưu tin nhắn đang soạn thảo.
+            this.Edit_Message = document.getElementById("messagez");
+            this.body_dien_thoai = document.getElementById("body_dien_thoai");
+            //thuoc tinh lưu tin nhắn trong hộp thư đến
+            this.dien_thoai = document.getElementById("dien_thoai");
+            this.message_in_mailbox_to = [];
+            //thuoc tinh để lưu tin nhắn đã gửi.
+            this.message_sent = [];
+            this.status = true;
+            //thuoc tinh  kiểm tra trạng thái điện thoại bật hay tắt
+            //Khai bao phuong thuc bật và tắt điện thoại
+            this.turn_the_phone_on_and_off = function () {
+
+                if (this.status) {
+                    var on = "black"
+                    this.body_dien_thoai.innerHTML = "";
+                } else {
+                    var on = "white";
+                    this.dv--;
+                }
+                this.status = !this.status
+                console.log(this.dv);
+
+                this.dien_thoai.style.backgroundColor = on;
+            }
+
+            //Khai bao phuong thuc xạc pin điện thoại.
+            this.refill_phone_battery = function () {
+
+                this.dv++;
+                if (this.dv >= 100) {
+                    this.dv = 100;
+                }
+            }
+
+            //Khai bao phuong thuc năng soạn tin nhắn.
+            this.message_composing = function () {
+                if (!this.status) {
+                    return;
+                }
+                this.body_dien_thoai.innerHTML = " <input type='text' id='message' />"
+            }
+
+            //Khai bao phuong thuc  chức năng nhận tin nhắn từ một chiếc mobile khác
+            this.receive_messages = function () {
+
+            }
+
+            //Khai bao phuong thuc chức năng gửi tin nhắn tới một chiếc mobile khác.
+            this.send_Message = function () {
+                this.Edit_Message.value
+            }
+
+            //Khai bao phuong thuc xem tin trong hộp thư đến
+            this.see_news_in_inbox = function () {
+
+            }
+
+            //Khai bao phuong thuc chức năng xem tin đã gửi.
+            this.View_sent_messages = function () {
+
+            }
+
+            //Khai bao phuong thuc Sau mỗi lần sử dụng một chức năng, năng lượng pin sẽ giảm đi một đơn vị.
+            this.reduced_battery_power = function () {
+
+            }
+            //Khai bao phuong thuc Các chức năng không thể hoạt động nếu điện thoại chưa bật
+            this.cannot_work_if_the_phone_is_not_turned_on = function () {
+
+            }
+        }
+        var objMobiel = new Mobiel();
+
+    </script>
+</body>
+
+</html>

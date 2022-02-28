@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        // function diagonalDifference(arr) {
+        //     // Write your code here
+        //     var tong_cheo_phai = 0;
+        //     var tong_cheo_trai = 0;
+        //     for (var i = 0; i < arr.length; i++) {
+        //         tong_cheo_phai += arr[i][i]
+        //     }
+
+        //     var j = arr.length - 1;
+        //     for (var i = 0; i < arr.length; i++) {
+        //         tong_cheo_trai += arr[i][j];
+        //         j--;
+        //     }
+
+
+        //     return Math.abs(tong_cheo_phai - tong_cheo_trai)
+        // }
+
+        // let arr = [
+        //     [11, 2, 4],
+        //     [4, 5, 6],
+        //     [10, 8, -12]
+        // ];
+
+        // diagonalDifference(arr)
+
+        function plusMinus(arr) {
+            // Write your code here
+            var so_duong = 0;
+            var so_am = 0;
+            var zero = 0;
+            for (var i = 0; i < arr.length; i++) {
+                if (arr[i] == 0) {
+                    zero += 1;
+                }
+                if (arr[i] > 0) {
+                    so_duong += 1;
+                }
+                if (arr[i] < 0) {
+                    so_am += 1;
+                }
+            }
+            var kq_so_duong = (so_duong / arr.length).toFixed(6);
+            var kq_so_am = (so_am / arr.length).toFixed(6);
+            var kq_zeros = (zero / arr.length).toFixed(6);
+
+            console.log(kq_so_duong)
+            console.log(kq_so_am)
+            console.log(kq_zeros)
+
+
+        }
+
+        var arr = [-4, 3, -9, 0, 4, 1];
+
+        plusMinus(arr)
+    </script>
+</body>
+
+</html>

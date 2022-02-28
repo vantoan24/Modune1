@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <button onclick="Choi()">Chơi</button>
+    <script>
+        function Choi() {
+            var count = 0;
+            var game = prompt("Mời người dùng nhập khoảng");// người dùng nhập khoảng trong số cần đoán theo ngẫu nhiên trong khoảng đó
+            var game = parseInt(game);// chuyển thàng dạnh số
+            var nguoi_dung_doan = parseInt(prompt("Mời người dùng đoán"));// số mà người dùng đoán lượt đầu
+            var i = 0;
+            so_ngau_nhien = Math.floor(Math.random() * game);// máy sẽ trả về số ngẫu nhiên trong khoảng người dùng đã chọn trước đó
+            while (i < game) {// game chỉ bắt đầu khi trong khoảng người dùng chọn thì vòng lặp sẽ đc thực thi
+                count++;
+               
+                if (so_ngau_nhien == nguoi_dung_doan) { // nếu số người dùng đoán bằng số ngẫu nhiên của máy
+                    alert("chúc mừng bạn đã đoán số");
+                    break;
+                }
+                else {
+                    if (so_ngau_nhien < nguoi_dung_doan) { // nếu số người dùng đoán bé hơn số ngẫu nhiên của máy
+                        alert(" Bé hơn");
+                        var nguoi_dung_doan = parseInt(prompt("Mời người dùng đoán lại"));// mời người dùng chọn lại số
+                    } else { // nếu số người dùng đoán lớn hơn số ngẫu nhiên của máy
+                        alert(" lớn hơn");
+                        var nguoi_dung_doan = parseInt(prompt("Mời người dùng đoán lại"));// mời người dùng chọn lại số
+                    }
+                }
+                if(count==3){
+                    alert("Ban da thua cuoc "+so_ngau_nhien+ " day la so may chon")
+                    break;
+                }
+            }
+        }
+    </script>
+    Send a message to Văn Toàn
+</body>
+
+</html>

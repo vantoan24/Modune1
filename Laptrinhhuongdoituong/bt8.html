@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hứng Bia</title>
+</head>
+
+<body>
+
+    <canvas id="myCanvas" width="800" height="600" style="border: 1px solid;"></canvas> <!-- khởi tạo canvas-->
+    <script>
+        //tạo biến canvas, context, pen_ctx và khởi tạo 3 đối tượng
+        var canvas = document.getElementById('myCanvas');
+        var context = canvas.getContext('2d'); // để vẽ đối tượng player và background
+        var pen_ctx = canvas.getContext('2d'); // vẽ đối tượng rơi từ trên xuống để khi pen_ctx.clearRect vẫn giữ được player và background
+        var player = new Image();
+        var beer = new Image();
+        var background = new Image();
+
+        //khởi động các function khi mở trình duyệt
+        window.onload = function () {
+            context.drawImage(background, 0, 0, canvas.width, canvas.height); // vẽ background
+            context.drawImage(player, 275, 500, 150, 75);                     // vẽ player
+            context.font = "20px Georgia";
+            context.fillText('Điểm số: ' + score, 660, 50);
+            context.fillText('Lượt chơi: ' + lives, 660, 80); //hiển thị điểm và mạng
+        }
+
+        //nạp hình ảnh 
+        player.src = 'Images/thungbia.png';
+        beer.onload = dropbeer;
+        beer.src = 'https://saigonspecial.com/wp-content/uploads/2020/06/saigon-special-chai-01-ban-linh-dan-ong.png';
+        background.src = 'https://oic.com.vn/wp-content/uploads/2017/08/httpoic.com_.vnuploadfilescac-tac-hai-cua-ruou-bia-voi-co-the.png'
+        let x = 275;    //tọa độ x
+        let y = 500;    //tọa độ y
+        let x_random = Math.floor(Math.random() * 750); //tọa độ x, y ngẫu nhiên   x: 0 - 750, y: 0 - 10.
+        let y_random = Math.floor(Math.random() * 10);
+        let score = 0;              //điểm số
+        let lives = 3;              //lượt chơi
+
+        //xử lý va chạm giữa player và các đối tượng từ trên rơi xuống
+        function touch() {
+            // điều kiện ghi điểm
+            if ((y_random > 450 && (x_random > x - 5) && (x_random < x + 110))) {
+                score++;
+                if (score != 0 && score % 10 == 0) {
+                    lives++;
+                }
+                pen_ctx.clearRect(0, 0, canvas.width, canvas.height);
+                context.fillText('Điểm số: ' + score, 660, 50);
+                context.fillText('Lượt chơi: ' + lives, 660, 80);
+                context.drawImage(background, 0, 0, canvas.width, canvas.height);
+                draw();
+                y_random = Math.floor(Math.random() * 100);
+                x_random = Math.floor(Math.random() * 750);
+            }
+        }
+
+        // thả các đối tượng rơi ngẫu nhiên từ trên xuống, set điều kiện thua
+        function dropbeer() {
+            pen_ctx.clearRect(0, 0, canvas.width, canvas.height);
+            context.drawImage(background, 0, 0, canvas.width, canvas.height);
+            context.fillText('Điểm số: ' + score, 660, 50);
+            context.fillText('Lượt chơi: ' + lives, 660, 80);
+            draw();
+            pen_ctx.drawImage(beer, x_random, y_random, 50, 75);
+            y_random += 2;
+            setTimeout(dropbeer);
+
+            //xóa đối tượng nếu height > canvas.height
+            if (y_random > 650) {
+                clearTimeout(dropbeer);
+                lives--;
+
+                //set điều kiện thua
+                if (lives == 0) {
+                    alert('Bạn đã uống: ' + score + ' chai, bạn đã say!');
+                    location.reload(); // reload lại trang web
+                }
+
+                //sau khi xóa đối tượng thì vẽ lại đối tượng mới
+                y_random = Math.floor(Math.random() * 100);
+                x_random = Math.floor(Math.random() * 750);
+                pen_ctx.drawImage(beer, x_random, y_random, 50, 50);
+            }
+            touch(); //gọi function
+        }
+
+        //nghe sự kiện chuột và vẽ đối tượng mới theo di chuyển của chuột
+        document.addEventListener("mousemove", mouseMoveHandler, false)
+        function mouseMoveHandler(e) {
+            x = e.clientX - 100;    //-100 để bằng với tọa độ chuột, tuy nhiên vẫn chưa hiểu lý do :D
+            draw();
+        }
+        //function vẽ player
+        function draw() {
+            //let context = document.getElementById('myCanvas').getContext('2d');
+            context.beginPath();
+            context.drawImage(player, x, y, 150, 75);
+            context.closePath();
+        }
+
+    </script>
+</body>
+
+</html>

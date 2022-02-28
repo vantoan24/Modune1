@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <canvas id="myCanvas" width="1000" height="500" style="border: 1px solid;" ></canvas>
+    <script>
+        function Rectangle() {
+            //thuoc tinh
+            this.chieu_dai = 0;
+            this.chieu_rong = 0;
+            //phuong thuc
+            this.dien_tich = function () {
+                return this.chieu_dai * this.chieu_rong
+            }
+            this.chu_vi = function () {
+                return (this.chieu_dai + this.chieu_rong) * 2
+            }
+            this.hien_thi = function () {
+                var c = document.getElementById("myCanvas");
+                var ctx = c.getContext("2d");
+                ctx.fillRect(400, 200, this.chieu_dai, this.chieu_rong);
+            }
+        }
+        //khoi tao doi tuong
+        var tinh = new Rectangle()
+
+        //thiet lap gia tri thuoc tinh chieu dai
+        tinh.chieu_dai = 200;
+        tinh.chieu_rong = 100;
+
+        //Goi phuong thuc
+        alert(tinh.chu_vi())
+        alert(tinh.dien_tich())
+
+        //Hien thi
+        tinh.hien_thi()
+    </script>
+</body>
+
+</html>

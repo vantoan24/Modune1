@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        function Circle() {
+            this.radio = 0;
+            this.color = "";
+
+            //Tra ve gia tri thuoc tinh raius
+            this.getRadius = function () {
+                return this.radio;
+            }
+
+            //Tra ve dien tich cua hinh tron
+            this.getArea = function () {
+                return this.radio * this.radio * 3.14;
+            }
+        }
+
+        //khoi tao
+        var objCircle = new Circle();
+
+        //Thiet lap gia tri thuoc tinh
+        objCircle.radio = 10;
+        objCircle.color = "red";
+
+        //goi toi phuong thuc get radius
+        console.log( objCircle.getRadius() )
+        console.log( objCircle.getArea() )
+        console.log(objCircle)
+    </script>
+</body>
+
+</html>

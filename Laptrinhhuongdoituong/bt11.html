@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <canvas id="canvas" width="1200" height="600" style="border: 1px solid; "> </canvas>
+    <script>
+        var canvas = document.getElementById("canvas");
+        var ctx = canvas.getContext("2d");
+        // khoi tao doi tuong image
+        var imageObj = new Image();
+        window.onload = function () {
+            ctx.drawImage(imageObj, 10, 10);
+            ctx.fillRect(1, 1, 10, 10);
+        };
+        // imageObj.src = "https://bluerabike.com/wp-content/uploads/2021/02/xe-ba-banh-dream-II-tu-che-01.jpg"
+        imageObj.src = "https://i0.wp.com/baohiemotoliberty.com/wp-content/uploads/2017/03/cac-hang-xe-o-to-cua-anh-1.jpg?fit=450%2C300&ssl=1"
+        let x = 50;
+        let y = 50;
+        let speed = 50;
+        document.addEventListener("keydown", function (e) {
+            //Nghe hanh dong an phim
+            let keycode = e.keyCode;
+
+            console.log(keycode);
+
+            switch (keycode) {
+                case 38:
+                    //xoa cac hinh torng canvas
+                    ctx.clearRect(0, 0, canvas.width, canvas.height);
+                    y = y - speed;
+                    ctx.drawImage(imageObj, x, y);
+                    //ve lai hinh anh chiec xe ow vi tri moi
+                    if ((y < 100) && (x < 100)) {
+                        alert("Loses");
+                    }
+                    ctx.fillRect(1, 1, 100, 100);
+                    //Ve lai hinh vat can
+                    break;
+                case 40:
+                    ctx.clearRect(0, 0, canvas.width, canvas.height);
+                    y = y + speed;
+                    ctx.drawImage(imageObj, x, y);
+                    if ((y < 100) && (x < 100)) {
+                        alert('Loser :)');
+                    }
+                    ctx.fillRect(1, 1, 100, 100);
+                    break;
+                case 37:
+                    ctx.clearRect(0, 0, canvas.width, canvas.height);
+                    x = x - speed;
+                    ctx.drawImage(imageObj, x, y);
+                    if ((y < 100) && (x < 100)) {
+                        alert('Loser :)');
+                    }
+                    ctx.fillRect(1, 1, 100, 100);
+                    break;
+                case 39:
+                    ctx.clearRect(0, 0, canvas.width, canvas.height);
+                    x = x + speed;
+                    ctx.drawImage(imageObj, x, y);
+                    if ((y < 100) && (x < 100)) {
+                        alert('Loser :)');
+                    }
+                    ctx.fillRect(1, 1, 100, 100);
+                    break;
+
+
+
+
+            }
+
+        })
+
+
+    </script>
+</body>
+
+</html>

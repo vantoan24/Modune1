@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        var nhiet_do = prompt("Mời bạn nhập nhiệt độ");
+        nhiet_do = parseInt(nhiet_do);
+        // alert(nhiet_do)
+        // if (nhiet_do >100) {
+        //     var   nhiet_do = prompt("yêu cầu người dùng giảm nhiệt độ.");
+         
+        // }
+        // if (nhiet_do<20) {
+
+        //     var  nhiet_do = prompt("yêu cầu người dùng tăng nhiệt độ.");
+           
+        // }
+
+        while( nhiet_do>100||nhiet_do<20 ){
+            if (nhiet_do>100){
+               nhiet_do= prompt("yêu cầu người dùng giảm nhiệt độ.");
+            }
+            if (nhiet_do<20) {
+               nhiet_do= prompt("yêu cầu người dùng tăng nhiệt độ.");
+            }
+        }
+
+        alert("oke");
+
+   
+    </script>
+</body>
+</html>

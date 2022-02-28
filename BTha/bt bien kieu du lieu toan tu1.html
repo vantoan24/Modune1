@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+
+        // NHAP TOAN LY HOA VA LUU VAO BO NHOA
+        let inputvatly;
+        let inputhoahoc;
+        let inputsinhhoc;
+        
+        inputvatly= prompt("nhap diem vat ly");//5
+        inputhoahoc= prompt("nhap diem hoa hoc");//6
+        inputsinhhoc= prompt("nhap diem sinh hoc");//7
+
+        //CHUYEN DOI KIEU DU LIEU
+        inputvatly= parseInt(inputvatly)
+        inputhoahoc= parseInt(inputhoahoc)
+        inputsinhhoc= parseInt(inputsinhhoc)
+        
+        //XU LY THEO CONG THUC
+        let tb = (inputvatly+inputhoahoc+inputsinhhoc)/3
+
+        //XUAT RA
+        document.write("ket qua la " + tb)
+
+
+
+    </script>
+</body>
+</html>

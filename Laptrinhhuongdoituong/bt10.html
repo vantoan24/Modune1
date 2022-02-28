@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        //Khai bao lop Temperature
+        function Temperature() {
+            
+            //khai bao thuoc tinh do c
+            this.do_c = 0;
+            //Khai bao phuong thuc do c sang do f
+            this.do_c_sang_f = function () {
+                let do_f = 1.8 * this.do_c + 32;
+                document.write("ket qua do F la " + do_f +'<br>');
+                //Khai bao phuong thuc do c sang kevin
+                this.do_c_sang_kevin = function () {
+                    let do_kevin = this.do_c + 273.15
+                    document.write("ket qua do kevin la" + do_kevin);
+                }
+            }
+
+
+        }
+        //khoi tao doi tuong nhiet do
+        let ObjTemperature = new Temperature();
+        // Thiet lap gia tri thuoc tinh
+        ObjTemperature.do_c = 25;
+        //Truy cap phuong thuc tu do c sang do F
+        ObjTemperature.do_c_sang_f();
+        //Truy cap phuong thuc tu do c sang do do_kevin
+        ObjTemperature.do_c_sang_kevin();
+
+    </script>
+</body>
+
+</html>

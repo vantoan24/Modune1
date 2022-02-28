@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        function Battery() {
+            //Thuộc
+            this.energy = 0;//0->10
+
+            //Thiet lap gia tri thuoc tinh energy
+            this.setEnergy = function (energy) {
+                this.energy = energy;
+            }
+
+            //Tra ve gia tri thuoc tinh energy
+            this.getEnergy = function () {
+                return this.energy;
+            }
+
+            //Giam gia tri thuoc tinh energy ve mot don vi
+            this.decreaseEnergy = function () {
+                if (this.energy > 0) {
+                    this.energy--;
+                }
+            }
+        }
+        function FlashLamp() {
+            this.status = false
+            this.battery = null
+
+            //Gan doi tuong battery vao
+            this.setBattery = function (battery) {
+                this.battery = battery
+            }
+
+            //Lay thong tin cua vien pin
+            this.getBatteryInfo = function () {
+                return this.battery.getEnergy();
+            }
+
+            //Chieu sang
+            this.light = function () {
+                if (this.status) {
+                    alert("lighnting")
+                } else {
+                    alert("Not Lighnting")
+                }
+            }
+
+            //Bat den
+            this.turnOn = function () {
+                this.status = true
+            }
+
+            //tAT den
+            this.turnOff = function () {
+                this.status = false
+            }
+        }
+
+        //Khoi tao doi tuong battery
+        let battery = new Battery();
+        // console.log(battery)
+        battery.setEnergy(10);
+
+        let flashLamp = new FlashLamp();
+        
+        flashLamp.setBattery(battery);
+        console.log(flashLamp)
+
+        document.write("Battery info:" + flashLamp.getBatteryInfo() + "<br/>");
+        // flashLamp.light();
+
+        document.write("Turn on<br/>")
+        flashLamp.turnOn();
+        flashLamp.light();
+        document.write("Battery info:" + flashLamp.getBatteryInfo() + "<br/>");
+
+        document.write("Turn off<br/>")
+        flashLamp.turnOff();
+        flashLamp.light();
+    </script>
+</body>
+
+</html>

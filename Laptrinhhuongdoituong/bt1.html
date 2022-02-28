@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        function person(ts_name, ts_age, ts_weight, ts_height) {
+            //thuoctinh
+            this.name = ts_name;
+            this.age = ts_age;
+            this.weight = ts_weight;
+            this.height = ts_height;
+            this.dichoi = function () {
+                console.log(this.name + "dichoi")
+            }
+            this.dinhau = function () {
+                console.log(this.name + "dinhau")
+            }
+
+            this.danhbai = function () {
+                console.log(this.name + "anhbai")
+
+            }
+
+            this.showInfo = function () {
+                console.log('Xin chào tôi tên là ' + this.name + 'năm nay tôi  ' + this.age + 'tuoi' + 'tôi nặng ' + this.weight + 'tôi cao ' + this.height)
+            }
+
+        }
+
+        var person1 = new person("Tam", '32', '75kg', '167cm');
+        // var person2 = new person("Toan", '19', '61kg', '166cm');
+        // var person3 = new person("phuoc", '27', '56kg', '172cm');
+        // var person4 = new person("thao", '25', '57kg', '172cm');
+        person1.name = "toan";
+
+        person1.showInfo()
+
+        // console.log(person1.name);
+        // console.log(person2.name);
+        // console.log(person3.name);
+        // console.log(person4.name);
+        // person2.dichoi();
+        // person2.dinhau();
+        // person2.danhbai();
+    </script>
+</body>
+
+</html>
