@@ -10,14 +10,15 @@
 
 <body>
     <script>
-       let a;
-        let b;
-        a = prompt("Enter the width");
-       b = prompt("Enter the height");
-        let width = parseInt(inputWidth);
-        let height = parseInt(inputHeight); 
-        let area = a * b;
-        document.write("The area is: " + area);
+var day = "Mon"; 
+var message = ""; 
+
+switch(day){ 
+case "Mon": message = "Ngày đầu tuần"; 
+case "Wed": message = "Ngày giữa tuần"; 
+case "Sat": 
+case "Sun": message = "Ngày nghỉ"; 
+}
     </script>
 </body>
 

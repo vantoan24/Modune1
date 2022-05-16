@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Câu 4</title>
+</head>
+<body>
+    <canvas id="my_canvas" width="400" height="400" style="border: 2px solid rebeccapurple;"></canvas>
+    <script>
+        class Circle {
+            constructor(ts_x, ts_y, ts_radius, ts_color) {
+                this.x = ts_x;
+                this.y = ts_y;
+                this.radius = ts_radius;
+                this.color = ts_color;
+            }
+            setX(ts_x) {
+                this.x = ts_x;
+            }
+            getX() {
+                return this.x;
+            }
+            setY(ts_y) {
+                this.y = ts_y;
+            }
+            getY() {
+                return this.y;
+            }
+            setRadius(ts_radius) {
+                this.radius = ts_radius;
+            }
+            getRadius() {
+                return this.radius;
+            }
+            setColor(ts_color) {
+                this.color = ts_color;
+            }
+            getColor() {
+                return this.color;
+            }
+            create_hinh_tron(ts_x, ts_y, ts_radius, ts_color) {
+                let ctx = document.getElementById("my_canvas").getContext("2d");
+                ctx.beginPath();
+                ctx.arc(this.x, this.y, this.radius, 0, 2 * Math.PI);
+                ctx.fill();
+            }
+        }
+        let my_circle = new Circle();
+        my_circle.setX(10);
+        my_circle.setY(10);
+        my_circle.setRadius(100);
+        my_circle.setColor("#000000");
+        my_circle.create_hinh_tron();
+        console.log(my_circle);
+    </script>
+</body>
+</html>
