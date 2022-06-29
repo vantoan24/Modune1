@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        button{
+        }
+    </style>
+</head>
+<body>
+    <!-- <button type="button" onclick="showMessage()">Tính</button>
+    <script>
+        function showMessage(){
+            let a = parseInt(prompt('Nhập điểm hóa'))
+            let b = parseInt(prompt('Nhập điểm lý'))
+            let c = parseInt(prompt('Nhập điểm văn'))
+            let sum = alert('Tổng điểm trung bình môn:'+ ((a+b+c)/3).toFixed(2));
+        }
+    </script> -->
+    <input type="number" id="number1">
+    <input type="number" id="number2">
+    <br>
+    <button type="submit" onclick="cong()">Adition+</button>
+    <button type="submit" onclick="tru()">Adition-</button>
+    <button type="submit" onclick="nhan()">Adition*</button>
+    <button type="submit" onclick="chia()">Adition/</button>
+    <br>
+    <h7>Results:<p id="result"></p></h7>
+    <script>
+        function cong(){
+           var number1= document.getElementById("number1").value;
+           var number2= document.getElementById("number2").value;
+           var result = Number(number1) + Number(number2);
+           document.getElementById("result").innerHTML = result;
+           console.log(result)
+        }
+        function tru(){
+           var number1= document.getElementById("number1").value;
+           var number2= document.getElementById("number2").value;
+           var result = Number(number1) * Number(number2);
+           document.getElementById("result").innerHTML = result;
+           console.log(result)
+        }
+        function nhan(){
+           var number1= document.getElementById("number1").value;
+           var number2= document.getElementById("number2").value;
+           var result = Number(number1) - Number(number2);
+           document.getElementById("result").innerHTML = result;
+           console.log(result)
+        }
+        function chia(){
+           var number1= document.getElementById("number1").value;
+           var number2= document.getElementById("number2").value;
+           var result = Number(number1) / Number(number2);
+           result = document.getElementById("result").innerHTML  ;
+           console.log(result)
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <button onclick="choi()">Chơi</button>
+    <script>
+        function choi() {
+            var nhap = prompt('Mời người dùng nhập khoảng');
+            var nhap = parseInt(nhap);
+            var game = parseFloat(prompt("Mời người dùng đoán"));
+            var i = 0
+            so_ngau_nhien = Math.round(Math.random() * nhap)
+            while (i<game){
+                if( so_ngau_nhien == game ){
+                    alert('Chúc mừng bạn đã đoán đúng số');
+                    break;
+                }else if( so_ngau_nhien > game |so_ngau_nhien < game ){
+                    alert('Số đúng là:'+ so_ngau_nhien );
+                    break;              
+                }
+            }
+        }
+    </script>
+</body>
+</html>

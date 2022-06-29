@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  input number 1
+  <input type="text" id="n1"> <br>
+  input number 2
+  <input type="text" id="n2"> <br>
+  Operator
+  <select id="operator">
+    <option>+</option>
+    <option>-</option>
+    <option>*</option>
+    <option>/</option>
+  </select>
+  <br>
+  Result
+  <input type="text" id="result"> <br>
+  <button onclick="myFunction()">Tính</button>
+  <script>
+    function myFunction() {
+      var n1 = document.getElementById('n1').value;
+      var n2 = document.getElementById('n2').value;
+      var operator = document.getElementById('operator').value
+      var result =0
+      if(operator == "+"){
+           var result = parseInt(n1)  + parseInt(n2);
+           document.getElementById('result').value = result
+       }else if(operator == "-"){
+           var result = parseInt(n1)  - parseInt(n2);
+           document.getElementById('result').value = result
+       }else if(operator == "*"){
+          var result = parseInt(n1)  * parseInt(n2);
+          document.getElementById('result').value = result
+        }else{
+          if(n2 == 0){
+            alert("No calculate");
+          }else{
+            var result = parseInt(n1)  / parseInt(n2);
+            document.getElementById('result').value = result
+          }
+        }
+        document.getElementById('result').value = result
+    }
+    
+//     function getRandNumbers(min, max,length){
+//     var array = [];
+//     for(var i=0;i <length;i++){
+//         array.push(Math.random() * (max - min) + min);
+//     }
+//     return array;
+// }
+//   console.log(getRandNumbers(4,8,6))
+  </script>
+
+
+</body>
+</html>
+

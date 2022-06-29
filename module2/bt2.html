@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    Nhập số tiền:
+    <input type="text" id="Amout"> 
+    <select  id="vn">
+        <option>VND</option>
+        <option>USD</option>
+    </select>
+    <select id="us">
+        <option>USD</option>
+        <option>VND</option>
+    </select>
+    <button onclick="check()">Tính</button>
+    <div>
+    <label id="result"></label>
+    </div>
+    <script>
+        function check(){
+            var Amout = document.getElementById("Amout").value;
+            var VN =    document.getElementById("vn").value;
+            var US =    document.getElementById("us").value;
+            var result;
+            if( VN == "USD" && US == "VND"){
+                result = "Số tiền đổi ra là"+ (Amout *23000) + "Đ"; 
+            }else if (VN == "VND" && US == "USD") {
+                result = "Số tiền đổi ra là"+ (Amout /23.000) + "$";
+            }else{
+               setTimeout(alert("Mời bạn chọn lại")) ;
+            }
+             document.getElementById("result").innerHTML = result
+        }
+    </script>
+</body>
+</html>
